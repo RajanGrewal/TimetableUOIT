@@ -17,6 +17,7 @@
               <input name="pass" type="password">
               <label>Week of</label>
                     <select name="date">
+                      <option value="current">Current week</option>
                       <option value="09/07/2015">09/07/2015</option>
                       <option value="09/14/2015">09/14/2015</option>
                       <option value="09/21/2015">09/21/2015</option>
@@ -158,6 +159,12 @@
     }
 
     if($success) {
+
+      if($date == "current")
+      {
+        $date = date("m/d/Y");
+      }
+
       $data = get_timetable($user,$pass,$date);
       echo($data);
     }
@@ -173,14 +180,13 @@ for(var i = 0;i < x.length;i++)
 	var link = x[i];
 
   //Easier to do DOM on client side
-	if(link.innerHTML == "Previous Week" || link.innerHTML == "Next Week")
-	{
+  if(link.innerHTML == "Previous Week" || link.innerHTML == "Next Week")
+  {
     link.innerHTML = "";
-	}
+  }
 
-    link.href = "#timetable"; //Disable ?
-    console.log("Removed anchor code");
-
+  link.href = "#timetable"; //Disable ?
+  console.log("Removed anchor code");
 }
 </script>
 </body>
