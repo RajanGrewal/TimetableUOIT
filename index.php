@@ -171,7 +171,6 @@
   }
   ?>
 </div>
-</div>
 <script type="text/javascript">
 var x = document.getElementsByTagName("A");
 
